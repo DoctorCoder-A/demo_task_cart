@@ -16,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('categories', [\App\Http\Controllers\CategoryController::class, 'index'])
+    ->name('show.categories');
+Route::get('sub-categories/{category_id}', [\App\Http\Controllers\CategoryController::class, 'subCategories'])
+    ->name('show.sub-categories');
+Route::get('products/{category}', [\App\Http\Controllers\ProductController::class, 'category'])
+    ->name('show-products.sub-categories');
+Route::get('cart', [\App\Http\Controllers\CartController::class, 'index'])
+    ->name('cart.index');
